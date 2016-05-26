@@ -44,7 +44,6 @@ packages <- function(packages) {
     }
   }
 
-
   # check if any of the specified packages are not installed on the host machine
   if (length(new <-
              packages[!(packages %in% installed.packages()[, "Package"])])) {
