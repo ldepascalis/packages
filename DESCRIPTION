@@ -1,9 +1,10 @@
 Package: packages
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Loads packages, after checking their installed
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: Who to complain to <yourfault@somewhere.net>
-Description: More about what it does (maybe more than one line)
-License: What license is it under?
+Author: Leonardo De Pascalis [aut, cre]
+Maintainer: Leonardo De Pascalis <leonardo.depascalis@gmail.com>
+Description: After the user has specified a string, or a string vector, with names of desired packages, the function checks the names correspond to those of packages available on CRAN. If it finds that some of the specified names do not correspond to available packages, the user is given the choice of loading the remaining packages. After this initial check the function checks whether the packages are installed, and, if not, installs them before loading them.
+License: GPL-3
 LazyData: TRUE
+RoxygenNote: 5.0.1.9000

@@ -11,7 +11,7 @@
 #' @keywords packages
 #' @export
 #' @examples
-#' packages()
+#' packages(packages = "lme4")
 
 packages <- function(packages) {
   # check packages is a string or a string vector
@@ -21,22 +21,22 @@ packages <- function(packages) {
 
   # check specified packages are available from http://cran.us.r-project.org
   if (length(unavailable <-
-             packages[!(packages %in% available.packages(repos = 'http://cran.us.r-project.org')[, "Packages"])])) {
+             packages[!(packages %in% available.packages(repos = 'http://cran.us.r-project.org')[, "Package"])])) {
     # install, from http://cran.us.r-project.org, whatever packages were found not to be installed on the host machine
     if (length(unavailable) == length(packages)) {
-      stop("The specified packages are not available on CRAN or have been spelt incorrectly")
+      stop("The specified packages are not correct/available on CRAN")
     } else {
       userinput <-
         as.character(unlist(strsplit(
           userinput <-
             readline(
-              "Some of the specified packages are not available on CRAN, or they names were spelt incorrectly. Should the remaining packages be installed regardless? (y = yes or n = no)"
+              "Not all the packages correct/available on CRAN.\nInstall remaining ones?\n(y = yes or n = no)"
             ),
           ","
         )))
       if (userinput == "y") {
         packages <- packages[!(packages %in% unavailable)]
-      } else if (userinput = "n") {
+      } else if (userinput == "n") {
         stop()
       } else {
         stop("Command not found. Aborting package loading.")
