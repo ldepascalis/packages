@@ -15,7 +15,7 @@ packages <- function(packages) {
 
   # check specified packages are available from http://cran.us.r-project.org
   if (length(unavailable <-
-             packages[!(packages %in% available.packages(repos = 'https://cloud.r-project.org/')[, "Package"])])) {
+             packages[!(packages %in% available.packages()[, "Package"])])) {
     # install, from http://cran.us.r-project.org, whatever packages were found not to be installed on the host machine
     if (length(unavailable) == length(packages)) {
       stop("The specified packages are not correct/available on CRAN")
