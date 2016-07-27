@@ -13,10 +13,10 @@ packages <- function(packages) {
     stop("packages must be a string or a string vector")
   }
 
-  # check specified packages are available from http://cran.us.r-project.org
+  # check specified packages are available from https://cloud.r-project.org/
   if (length(unavailable <-
-             packages[!(packages %in% available.packages()[, "Package"])])) {
-    # install, from http://cran.us.r-project.org, whatever packages were found not to be installed on the host machine
+             packages[!(packages %in% available.packages(repos = "https://cloud.r-project.org/")[, "Package"])])) {
+    # install, from https://cloud.r-project.org/, whatever packages were found not to be installed on the host machine
     if (length(unavailable) == length(packages)) {
       stop("The specified packages are not correct/available on CRAN")
     } else {
